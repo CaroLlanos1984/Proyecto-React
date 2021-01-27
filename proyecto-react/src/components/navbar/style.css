@@ -1,0 +1,70 @@
+
+/* NAVIGATION*/
+
+.navigation{
+    background-color:lightgray;
+    display: flex;
+
+}
+
+.navbar{
+    width: 50px;
+}
+
+.cartIconDiv{
+    width: 50px;
+}
+
+.nav-menu a{
+    list-style: none;
+    text-decoration: none;
+    color:black
+}
+
+.sideBarIcon{
+   font-size: 20px;
+   padding: 20px;
+   background: none;
+
+}
+
+.nav-menu-items a:hover{
+    color:darkblue;
+    cursor: pointer;
+    text-decoration: none;
+
+
+}
+
+.nav-menu{
+    background-color: whitesmoke;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    /*left: -100%;*/
+    transition: 850ms;
+}
+
+.nav-menu.active{
+    left: 0;
+    transition: 350ms;
+}
+
+.nav-menu li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    height: 60px; 
+    
+}
+
+.cartIcon{
+    font-size: 30px;
+    padding-right: 50px;
+}
+
