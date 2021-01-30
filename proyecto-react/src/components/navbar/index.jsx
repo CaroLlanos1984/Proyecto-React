@@ -1,16 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaBars } from 'react-icons/fa';
-import { CgShoppingCart} from 'react-icons/cg';
 import { AiOutlineClose } from 'react-icons/ai';
 import './style.css';
+import CartWidget from '../cartWidget/cartWidget';
+
+
 
 const NavbarComponent= ()=> {
 
     return (
-    <>
+    
         <header>
     
-           <div className="navigation row d-flex align-items-center d-flex justify-content-between">
+           <div className="navigation">
 
               {/* SIDE BAR ICON*/}
 
@@ -20,15 +22,15 @@ const NavbarComponent= ()=> {
               
               {/* BRAND LOGO */}
 
-              <div>
-               <img src="/images/logosmile.png" alt="logo" width='120px' height='120px'/>
+              <div className='logoDiv'>
+                <img className='logoImg' src="/images/logosmile.png" alt="logo" width='120px' height='120px' />
               </div>
-
+            
 
               {/* CART */}
 
               <div className= 'cartIconDiv'>
-                <i className='cartIcon'><CgShoppingCart/></i>
+                <CartWidget/>
               </div>
 
           </div>
@@ -48,7 +50,7 @@ const NavbarComponent= ()=> {
           
 
         </header>
-    </>
+    
   );
 }
 

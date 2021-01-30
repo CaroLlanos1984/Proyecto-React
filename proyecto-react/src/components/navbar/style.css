@@ -4,16 +4,15 @@
 .navigation{
     background-color:lightgray;
     display: flex;
-
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navbar{
     width: 50px;
 }
 
-.cartIconDiv{
-    width: 50px;
-}
 
 .nav-menu a{
     list-style: none;
@@ -32,8 +31,6 @@
     color:darkblue;
     cursor: pointer;
     text-decoration: none;
-
-
 }
 
 .nav-menu{
@@ -63,8 +60,15 @@
     
 }
 
-.cartIcon{
-    font-size: 30px;
-    padding-right: 50px;
+
+.logoDiv{
+    display: flex;
+    align-content: center;
+}
+
+.logoImg{
+   
+    align-self: center;
+   
 }
 
