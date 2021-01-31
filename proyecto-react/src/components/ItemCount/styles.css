@@ -1,0 +1,16 @@
+.contador{
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+}
+
+.substract, .add, .contador2{
+    padding: 10px;
+    margin: 10px;
+}
+.comprar{
+    margin: 50px;
+}
