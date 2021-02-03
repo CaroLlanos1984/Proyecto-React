@@ -1,17 +1,46 @@
+import React, {useState} from 'react';
 import './styles.css';
 
-const ItemCount = ({stock, onAdd, contador, onSubstract}) =>{
-    return(
-        <>
 
+
+const ItemCount = ({onAdd}) =>{
+
+    let stock= 12
+    let initial = 1
+
+    const [contador, setContador]= useState (1)
+    
+    const increase = (stock) => {
+        
+        if (contador<stock){
+        setContador (contador + 1)
+        }else{
+            alert ("Nos quedamos sin stock =(") 
+        }
+
+    }
+
+    const decrease = () => {
+        if (contador > initial) {
+            setContador(contador - 1);
+        }else{
+            alert('No podes comprar menos de 1 item =)')
+        }
+    }
+
+    return(
+
+        <>
+        
         <div className='contador'>
-            <button onClick= {onSubstract} className='substract'>-</button>
+            <button onClick= {decrease} className='substract'>-</button>
             <b className='contador2'>{contador}</b>
-            <button onClick= {() => {onAdd(stock)}} className='add'>+</button>
+            <button onClick= {() => {increase(stock)}} className='add'>+</button>
         </div>
+        
 
         <div className='comprar'>
-            <button>Comprar</button>
+            <button onClick= {onAdd} >Add to cart</button>
         </div>
         </>
     );

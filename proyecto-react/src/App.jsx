@@ -11,8 +11,16 @@ const App= () => {
   return (
     
       <>
+        <header>
         < NavbarComponent /> 
-        < ItemListContainer greeting={"Bienvenidos"}/>
+        </header>
+
+        < ItemListContainer/>
+
+        <footer>
+
+        </footer>
+
       </>
       
     
