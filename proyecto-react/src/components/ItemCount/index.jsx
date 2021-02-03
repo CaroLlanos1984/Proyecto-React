@@ -40,7 +40,7 @@ const ItemCount = ({onAdd}) =>{
         
 
         <div className='comprar'>
-            <button onClick= {onAdd} >Add to cart</button>
+            <button onClick= {()=>onAdd(contador)} >Add to cart</button>
         </div>
         </>
     );
