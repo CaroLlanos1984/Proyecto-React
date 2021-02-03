@@ -6,8 +6,8 @@ import './styles.css';
 
 const ItemListContainer = () => {
 
-    const onAdd = () => {
-      console.log ("Agregaste un producto al carrito") 
+    const onAdd = (count) => {
+      console.log (`Agregaste ${count} producto/s al carrito`) 
     }
 
     return (

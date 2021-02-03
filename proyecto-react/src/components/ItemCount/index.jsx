@@ -8,12 +8,12 @@ const ItemCount = ({onAdd}) =>{
     let stock= 12
     let initial = 1
 
-    const [contador, setContador]= useState (1)
+    const [count, setCount]= useState (1)
     
     const increase = (stock) => {
         
-        if (contador<stock){
-        setContador (contador + 1)
+        if (count<stock){
+        setCount (count + 1)
         }else{
             alert ("Nos quedamos sin stock =(") 
         }
@@ -21,8 +21,8 @@ const ItemCount = ({onAdd}) =>{
     }
 
     const decrease = () => {
-        if (contador > initial) {
-            setContador(contador - 1);
+        if (count > initial) {
+            setCount(count - 1);
         }else{
             alert('No podes comprar menos de 1 item =)')
         }
@@ -34,13 +34,13 @@ const ItemCount = ({onAdd}) =>{
         
         <div className='contador'>
             <button onClick= {decrease} className='substract'>-</button>
-            <b className='contador2'>{contador}</b>
+            <b className='contador2'>{count}</b>
             <button onClick= {() => {increase(stock)}} className='add'>+</button>
         </div>
         
 
         <div className='comprar'>
-            <button onClick= {()=>onAdd(contador)} >Add to cart</button>
+            <button onClick= {()=>onAdd(count)} >Add to cart</button>
         </div>
         </>
     );
