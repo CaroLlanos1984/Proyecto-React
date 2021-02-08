@@ -1,12 +1,14 @@
+import Item from "../Item/Item";
+
 const ItemList = ({products}) => {
     return (
-        <div>
-            <ul>
-                {products.map((product) => {
-                    return <li key={product.id}></li>
-                })}
-            </ul>
-        </div>
+        <>
+           
+            {products.map((product) => {
+                    return <Item key={product.id} product={product}/>
+            })}
+            
+        </>
        
     )
 }
