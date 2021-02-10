@@ -5,17 +5,17 @@ import ProductList from "../mocks/productList";
 
 const ItemDetailContainer = () => {
 
-    const [products, setProducts] = useState ([]);
+    const [itemDetail, setItemDetail] = useState ([]);
 
     useEffect (() => {
 
         const getItems = new Promise ((resolve, reject) => {
             setTimeout (() => {
-                resolve (ProductList)
+                resolve (ProductList[2])
             }, 5000);
             
         });
-        getItems.then((result) => setProducts(result)
+        getItems.then((result) => setItemDetail(result)
 
        );
     }, []);

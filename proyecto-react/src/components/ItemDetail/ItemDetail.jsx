@@ -1,16 +1,17 @@
+const ItemDetail = ({products}) => {
 
-const ItemDetail = ({product}) => {
-
+    
     return (
-
-        <> 
-        < div className= "item">
-            <h3>{product.name}</h3>
-            <p>Price:{product.price}</p>
-            <p>Stock:{product.stock}</p>
+        
+        < div>
+             <h3>{products.name}</h3>
+            <p>Price:{products.price}</p>
+            <p>Stock:{products.stock}</p>
         </div>
-        </>
     )
+    
+        
 }
 
 export default ItemDetail;
+
