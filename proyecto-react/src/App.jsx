@@ -2,6 +2,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from './components/navbar';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
+import  {BrowserRouter, Switch, Route} from 'react-router-dom';
+import ItemDetailContainer from './containers/ItemListContainer/ItemDetailContainer/ItemDetailContainer';
 
 
 
@@ -10,18 +12,27 @@ import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 const App= () => {
   return (
     
-      <>
+      <BrowserRouter>
+      
         <header>
-        < NavbarComponent /> 
+          < NavbarComponent /> 
         </header>
 
-        < ItemListContainer/>
+        <ItemDetailContainer/>
+
+        <Switch>
+
+          <Route exact path= "/">
+            < ItemListContainer/>
+          </Route>
+
+        </Switch>
 
         <footer>
 
         </footer>
 
-      </>
+      </BrowserRouter>
       
     
   );

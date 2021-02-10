@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import ItemCount from '../../components/ItemCount';
 import ItemList from '../../components/ItemList/ItemList';
@@ -32,7 +31,6 @@ const ItemListContainer = () => {
         <>
             <ItemCount onAdd={onAdd}/>
             <ItemList products={products}/>
-            
         </>
     )
 
