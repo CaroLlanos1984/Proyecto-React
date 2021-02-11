@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import ItemDetail from "../../../components/ItemDetail/ItemDetail";
+import ItemDetailCard from "../../../components/ItemDetail/ItemDetailCard";
 import ProductList from "../mocks/productList";
 
 
@@ -16,14 +16,12 @@ const ItemDetailContainer = () => {
             
         });
         getItems.then((result) => setItemDetail(result));
-        
-
-
+    
     }, []);
 
     return (
         <>
-            <ItemDetail itemDetail={itemDetail}/>
+            <ItemDetailCard itemDetail={itemDetail}/>
         </>
     )
 }
