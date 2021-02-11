@@ -15,9 +15,10 @@ const ItemDetailContainer = () => {
             }, 5000);
             
         });
-        getItems.then((result) => setItemDetail(result)
+        getItems.then((result) => setItemDetail(result));
+        
 
-       );
+
     }, []);
 
     return (
