@@ -16,17 +16,15 @@ const ItemDetailContainer = () => {
 
             setTimeout (() => {
 
-                let itemDetailInfo = ProductList.find (product => {
-                    if (product.itemId.toString () === itemId){
-                        return product}  
-                    }) 
-                    
-                    console.log(itemDetailInfo)
+                let itemDetailInfo = ProductList.find(product => product.itemId.toString() === itemId) 
+                
+                           
+                console.log(itemDetailInfo)
                 
 
                 resolve (
                    itemDetailInfo 
-                    ) 
+                ) 
                 
                 
                  
