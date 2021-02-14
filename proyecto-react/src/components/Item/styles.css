@@ -1,7 +1,14 @@
 .item{
     border: 2px solid grey ;
     border-radius: 10px;
-    margin: 20px;
+    margin:20px;
     width: 500px;
-    
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
 }
+
+

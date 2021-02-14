@@ -4,6 +4,8 @@ import NavbarComponent from './components/navbar';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 import  {BrowserRouter, Switch, Route} from 'react-router-dom';
 import ItemDetailContainer from './containers/ItemListContainer/ItemDetailContainer/ItemDetailContainer';
+import CartWidget from './components/cartWidget/cartWidget';
+import Contact from './components/contact';
 
 
 
@@ -18,12 +20,27 @@ const App= () => {
           < NavbarComponent /> 
         </header>
 
-        <ItemDetailContainer/>
-
+        
         <Switch>
 
           <Route exact path= "/">
-            < ItemListContainer/>
+            <ItemListContainer/>
+          </Route>
+
+          <Route exact path= "/category/:categoryId">
+            <ItemListContainer/>
+          </Route>
+
+          <Route exact path= "/item/:itemId">
+           <ItemDetailContainer/>
+          </Route>
+
+          <Route exact path= "/cart">
+            <CartWidget/>
+          </Route>
+
+          <Route exact path= "/contact">
+              <Contact/>
           </Route>
 
         </Switch>

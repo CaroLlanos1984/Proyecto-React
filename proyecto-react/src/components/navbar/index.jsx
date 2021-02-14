@@ -3,7 +3,8 @@ import { FaBars } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import './style.css';
 import CartWidget from '../cartWidget/cartWidget';
-
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const NavbarComponent= ()=> {
@@ -23,27 +24,29 @@ const NavbarComponent= ()=> {
               {/* BRAND LOGO */}
 
               <div className='logoDiv'>
-                <img className='logoImg' src="/images/logosmile.png" alt="logo" width='120px' height='120px' />
+                <Link to= {`/`}><img className='logoImg' src="/images/logosmile.png" alt="logo" width='120px' height='120px' /></Link>
               </div>
             
 
               {/* CART */}
 
               <div className= 'cartIconDiv'>
-                <CartWidget/>
+                <Link to= {`/cart`}> <CartWidget/> </Link>
               </div>
 
           </div>
+
+          {/* SIDE BAR TOGGLE*/}
 
           <nav className='nav-menu'>
                 <ul className= 'nav-menu-items'>
                     <li className='navbar-toggle'>
                         <i className='closeicon'><AiOutlineClose/></i> 
                     </li>
-                    <li> <a href="#">Home</a> </li>
-                    <li> <a href="#">Search</a> </li>
-                    <li> <a href="#">Shopping Cart</a> </li>
-                    <li> <a href="#">Contact</a> </li>
+                    <li> <NavLink to= {`/`} activeClassName="current" className="home_text"> Home </NavLink> </li>
+                    <li> <NavLink to= {``} activeClassName="current" className="products_text"> Products </NavLink> </li>
+                    <li> <NavLink to= {`/cart`} activeClassName="current" className="shooping_cart_text"> Shopping Cart </NavLink> </li>
+                    <li> <NavLink to= {`/contact`} activeClassName="current" className="contact_text"> Contact </NavLink> </li>
                 </ul>
            </nav>
 
