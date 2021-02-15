@@ -13,7 +13,6 @@
     width: 50px;
 }
 
-
 .nav-menu a{
     list-style: none;
     text-decoration: none;
@@ -24,6 +23,7 @@
    font-size: 20px;
    padding: 20px;
    background: none;
+   text-decoration: none;
 
 }
 
@@ -41,7 +41,7 @@
     flex-direction: column;
     position: fixed;
     top: 0;
-    /*left: -100%;*/
+    left: -100%;
     transition: 850ms;
 }
 

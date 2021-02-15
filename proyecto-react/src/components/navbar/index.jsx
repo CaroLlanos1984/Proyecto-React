@@ -5,10 +5,17 @@ import './style.css';
 import CartWidget from '../cartWidget/cartWidget';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import ProductList from '../../containers/ItemListContainer/mocks/productList';
+import {useState} from 'react';
+
+
+
+
 
 
 const NavbarComponent= ()=> {
+
+  const [sidebar, setSidebar]= useState (false)
+  const showSidebar = () => setSidebar (!sidebar) 
 
     return (
     
@@ -19,7 +26,7 @@ const NavbarComponent= ()=> {
               {/* SIDE BAR ICON*/}
 
               <div className='navbar'> 
-                <i className='sideBarIcon'><FaBars/></i> 
+                <Link to= {``} > <i className='sideBarIcon'> <FaBars onClick={showSidebar}/> </i> </Link>
               </div>
               
               {/* BRAND LOGO */}
@@ -37,22 +44,24 @@ const NavbarComponent= ()=> {
 
           </div>
 
-          {/* SIDE BAR TOGGLE*/}
+         {/* SIDE BAR TOGGLE MENU */}
 
-          <nav className='nav-menu'>
-                <ul className= 'nav-menu-items'>
-                    <li className='navbar-toggle'>
-                        <i className='closeicon'><AiOutlineClose/></i> 
-                    </li>
-                    <li> <NavLink to= {`/`} activeClassName="current" className="home_text"> Home </NavLink> </li>
-                    <li> <NavLink to= {``} activeClassName="current" className="products_text"> Products </NavLink></li>
-                    <li> <NavLink to = {`/category/${product.id}`} activeClassName="current"> Remeras </NavLink> </li>
-                    <li><NavLink to = {`/category/${product.id}`} activeClassName="current"> Zapatillas </NavLink></li>
-                    <li> <NavLink to= {`/cart`} activeClassName="current" className="shooping_cart_text"> Shopping Cart </NavLink> </li>
-                    <li> <NavLink to= {`/contact`} activeClassName="current" className="contact_text"> Contact </NavLink> </li>
-                </ul>
-           </nav>
-
+          
+          <nav className= {sidebar ? 'nav-menu-active' : 'nav-menu'}>
+            <ul className= 'nav-menu-items'>
+                <li className='navbar-toggle'>
+                    <Link to= {` `} > <i className='closeicon'> <AiOutlineClose/> </i> </Link>
+                </li>
+                <li> <NavLink to= {`/`} activeClassName="current" className="home_text"> Home </NavLink> </li>
+                <li> <NavLink to= {``} activeClassName="current" className="products_text"> Products </NavLink></li>
+                <li> <NavLink to = {`/category/remeras`} activeClassName="current"> Remeras </NavLink> </li>
+                <li><NavLink to = {`/category/zapatillas`} activeClassName="current"> Zapatillas </NavLink></li>
+                <li> <NavLink to= {`/cart`} activeClassName="current" className="shooping_cart_text"> Shopping Cart </NavLink> </li>
+                <li> <NavLink to= {`/contact`} activeClassName="current" className="contact_text"> Contact </NavLink> </li>
+            </ul>
+          </nav>
+          
+          
           
 
         </header>

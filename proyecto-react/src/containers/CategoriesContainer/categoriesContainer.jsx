@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import ItemDetailCard from "../../components/ItemDetail/ItemDetailCard";
-import ProductList from "../ItemListContainer/mocks/productList"
 import {useParams} from 'react-router-dom';
+import ItemList from "../../components/ItemList/ItemList";
+
 
 
 const CategoriesContainer = () => {
@@ -12,11 +12,12 @@ const CategoriesContainer = () => {
     
     useEffect (() => {
 
-        
-
         const getItemsByCategorie = new Promise ((resolve, reject) => {
 
-            let itemsByCategorie = ProductList.find (product => product.categoryId=== categoryId)
+            let itemsByCategorie = ItemList.filter (product => product.categoryId.toString() === categoryId);
+                    
+            
+        
             
             console.log (getItemsByCategorie)
 
@@ -32,7 +33,8 @@ const CategoriesContainer = () => {
 
     return (
         <>
-            <ItemDetailCard itemCategorie={itemCategorie}/>
+            <ItemList products={itemCategorie}/>
+            
         </>
     )
 }
