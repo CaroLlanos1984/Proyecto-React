@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import {useParams} from 'react-router-dom';
 import ItemList from "../../components/ItemList/ItemList";
+import ProductList from "../ItemListContainer/mocks/productList";
 
 
 
@@ -12,16 +13,22 @@ const CategoriesContainer = () => {
     
     useEffect (() => {
 
+        
+
         const getItemsByCategorie = new Promise ((resolve, reject) => {
 
-            let itemsByCategorie = ItemList.filter (product => product.categoryId.toString() === categoryId);
-                    
-            
-        
-            
-            console.log (getItemsByCategorie)
+            setTimeout (() => {
 
-            resolve (itemsByCategorie)
+                let itemsByCategorie = ProductList.filter (product => product.categoryId.toString() === categoryId);
+                    
+
+            
+                console.log (getItemsByCategorie)
+
+                resolve (itemsByCategorie)
+
+            }, 2000);
+
         })
 
     
