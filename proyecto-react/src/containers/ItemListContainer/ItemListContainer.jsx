@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import ItemCount from '../../components/ItemCount';
 import ItemList from '../../components/ItemList/ItemList';
 import ProductList from './mocks/productList';
 import './styles.css';
@@ -23,19 +22,20 @@ const ItemListContainer = () => {
     
     
 
-    const onAdd = (count) => {
-      console.log (`Agregaste ${count} producto/s al carrito`) 
-    }
+    
 
     return (
         <>
-            <ItemCount onAdd={onAdd}/>
+            
             <ItemList products={products}/>
         </>
     )
 
 };
 
-
+/*<ItemCount onAdd={onAdd}/>
+const onAdd = (count) => {
+    console.log (`Agregaste ${count} producto/s al carrito`) 
+  }*/
 
 export default ItemListContainer;
