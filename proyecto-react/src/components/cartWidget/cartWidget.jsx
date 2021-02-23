@@ -1,5 +1,6 @@
-import { CgShoppingCart} from 'react-icons/cg';
 import './styles.css';
+import { CgShoppingCart} from 'react-icons/cg';
+
 
 const CartWidget = () => {
 
@@ -11,4 +12,6 @@ const CartWidget = () => {
 }
 
 export default CartWidget;
+
+
 

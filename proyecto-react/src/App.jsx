@@ -4,18 +4,21 @@ import NavbarComponent from './components/navbar';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 import  {BrowserRouter, Switch, Route} from 'react-router-dom';
 import ItemDetailContainer from './containers/ItemListContainer/ItemDetailContainer/ItemDetailContainer';
-import CartWidget from './components/cartWidget/cartWidget';
 import Contact from './components/contact';
 import CategoriesContainer from './containers/CategoriesContainer/categoriesContainer';
-
-
+import CartContextProvider from './context/CartContextProvider';
+import Cart from './components/cart/Cart';
 
 
 
 const App= () => {
+
   return (
-    
-      <BrowserRouter>
+
+  
+    <BrowserRouter>
+
+      <CartContextProvider>
       
         <header>
           < NavbarComponent /> 
@@ -37,7 +40,7 @@ const App= () => {
           </Route>
 
           <Route exact path= "/cart">
-            <CartWidget/>
+            <Cart/>
           </Route>
 
           <Route exact path= "/contact">
@@ -50,7 +53,11 @@ const App= () => {
 
         </footer>
 
-      </BrowserRouter>
+      </CartContextProvider>
+
+    </BrowserRouter>
+      
+    
       
     
   );
