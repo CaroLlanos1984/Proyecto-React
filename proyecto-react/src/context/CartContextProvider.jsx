@@ -24,15 +24,14 @@ const CartContextProvider = ({children}) => {
         } else {
             const newCart = [...cart];
             newCart.forEach ((product => {
-                if (product.itemDetail.id === itemDetail.itemDetail.id)
-                {
-                    count + 1
+                if (product.itemDetail.id === itemDetail.itemDetail.id){
+                    product.itemDetail.count += itemDetail.count
                 }
-                
-            setCart(newCart)
-        })
+            }))
 
-    )}
+            setCart(newCart)
+        }
+    }
 
     // PARA SABER SI YA ESTA EN EL CART 
 
