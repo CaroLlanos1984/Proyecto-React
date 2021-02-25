@@ -33,9 +33,5 @@ const ItemListContainer = () => {
 
 };
 
-/*<ItemCount onAdd={onAdd}/>
-const onAdd = (count) => {
-    console.log (`Agregaste ${count} producto/s al carrito`) 
-  }*/
 
 export default ItemListContainer;

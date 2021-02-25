@@ -8,7 +8,7 @@ const ItemDetailCard = ({itemDetail}) => {
 
     const onAdd = (count) => {
       console.log (`Agregaste ${count} producto/s al carrito`) 
-      addItem ({itemDetail: itemDetail, quantity: count})
+      addItem ({itemDetail, count})
     }
     
 
