@@ -5,7 +5,7 @@ import './style.css';
 import CartWidget from '../cartWidget/cartWidget';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 
 
 
@@ -16,6 +16,7 @@ const NavbarComponent= ()=> {
 
   const [sidebar, setSidebar]= useState (false)
   const showSidebar = () => setSidebar (!sidebar) 
+  
 
     return (
     
@@ -39,6 +40,7 @@ const NavbarComponent= ()=> {
               {/* CART */}
 
               <div className= 'cartIconDiv'>
+                <span>0</span>
                 <Link to= {`/cart`}> <CartWidget/> </Link>
               </div>
 

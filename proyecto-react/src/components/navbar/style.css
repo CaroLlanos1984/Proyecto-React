@@ -72,3 +72,20 @@
    
 }
 
+.cartIconDiv{
+    position:relative;
+    margin-right:50px;
+}
+
+.cartIconDiv span{
+    background-color: darkblue;
+    border-radius: 20px;
+    color:white;
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+
