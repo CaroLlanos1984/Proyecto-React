@@ -25,12 +25,12 @@ const ItemDetailContainer = () => {
             //tomo los datos
             item.get().then((value) => {
             
-                let aux = value.data() 
+                let aux = {...value.data(), id: value.id}
                 console.log(aux)
                 setItemDetail(aux)
     
             })
-        }, [])
+        }, [itemId])
     
 
         

@@ -1,4 +1,4 @@
-import { useDebuValue, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import { getFirestore } from '../../firebase';
 //import ProductList from './mocks/productList';
@@ -32,7 +32,7 @@ const ItemListContainer = () => {
         itemCollection.get().then((value) => {
         
             let aux = value.docs.map(element =>{ 
-                return {...element.data(), id: element.id} 
+                return {...element.data(), id:element.id} 
             })
             console.log(aux)
             setProducts(aux)

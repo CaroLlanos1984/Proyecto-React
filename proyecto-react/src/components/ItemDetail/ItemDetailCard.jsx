@@ -15,7 +15,7 @@ const ItemDetailCard = ({itemDetail}) => {
     return (
 
        <div className= "item">
-            <h3>Product: {itemDetail.name}</h3>
+            <h3>Product: {itemDetail.title}</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas est cum autem atque sint 
             eius amet sit error illo adipisci, dicta aut deleniti commodi alias cupiditate numquam nisi 
             corrupti non.</p>
