@@ -33,7 +33,7 @@ const CartContextProvider = ({ children }) => {
 
             setCart(newCart)
         }
-        localStorage.setItem( "cart", JSON. stringify ([...cart]))
+        localStorage.setItem( "cart", JSON.stringify ([...cart]))
         
     }
 

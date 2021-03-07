@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import ItemDetailCard from "../../../components/ItemDetail/ItemDetailCard";
-import ProductList from "../mocks/productList";
+//import ProductList from "../mocks/productList";
 import {useParams} from 'react-router-dom';
+import { getFirestore } from "../../../firebase";
+
 
 const ItemDetailContainer = () => {
 
@@ -9,10 +11,30 @@ const ItemDetailContainer = () => {
     const {itemId}= useParams ();
     const [itemDetail, setItemDetail] = useState ([]);
 
-    useEffect (() => {
+   
+
+        useEffect ( () => {
+            // conexion a la bd
+            const dataBase = getFirestore()
+            
+    
+            // guardo la ref de la coleccion 
+            const itemCollection = dataBase.collection ('ITEMS')
+            const item = itemCollection.doc(itemId)
+            
+            //tomo los datos
+            item.get().then((value) => {
+            
+                let aux = value.data() 
+                console.log(aux)
+                setItemDetail(aux)
+    
+            })
+        }, [])
+    
 
         
-        const getItems = new Promise ((resolve, reject) => {
+        /*const getItems = new Promise ((resolve, reject) => {
 
             setTimeout (() => {
 
@@ -33,9 +55,9 @@ const ItemDetailContainer = () => {
             
             
         });
-        getItems.then((result) => setItemDetail(result));
+        getItems.then((result) => setItemDetail(result));*/
     
-    }, [itemId]);
+    
     
 
    
