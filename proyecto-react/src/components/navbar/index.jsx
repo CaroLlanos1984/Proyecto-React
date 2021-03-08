@@ -6,7 +6,7 @@ import CartWidget from '../cartWidget/cartWidget';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {useState, useContext} from 'react';
-
+import {CartContext} from '../../context/CartContextProvider';
 
 
 
@@ -16,6 +16,11 @@ const NavbarComponent= ()=> {
 
   const [sidebar, setSidebar]= useState (false)
   const showSidebar = () => setSidebar (!sidebar) 
+
+  
+  const CartContextUse = useContext(CartContext)
+
+  const {cart, setCart} = useContext (CartContext)
   
 
     return (
@@ -49,7 +54,7 @@ const NavbarComponent= ()=> {
          {/* SIDE BAR TOGGLE MENU */}
 
           
-          <nav className= {sidebar ? 'nav-menu-active' : 'nav-menu'}>
+          <nav className= {sidebar ? 'nav-menu-active':'nav-menu'}>
             <ul className= 'nav-menu-items'>
                 <li className='navbar-toggle'>
                     <Link to= {` `} > <i className='closeicon'> <AiOutlineClose/> </i> </Link>

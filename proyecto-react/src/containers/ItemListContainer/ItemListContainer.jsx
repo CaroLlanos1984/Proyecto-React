@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import { getFirestore } from '../../firebase';
-//import ProductList from './mocks/productList';
 import './styles.css';
 
 
