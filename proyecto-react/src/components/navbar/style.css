@@ -16,7 +16,7 @@
 .nav-menu a{
     list-style: none;
     text-decoration: none;
-    color:black
+    color:black;
 }
 
 .sideBarIcon{
@@ -36,9 +36,9 @@
 .nav-menu{
     background-color: whitesmoke;
     width: 250px;
-    height: 100vh;
+    height: 100px;
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
     position: fixed;
     top: 0;
     left: -100%;

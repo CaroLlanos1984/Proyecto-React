@@ -25,14 +25,14 @@ const NavbarComponent= ()=> {
 
     return (
     
-        <header>
-    
+        <> 
+
            <div className="navigation">
 
               {/* SIDE BAR ICON*/}
 
               <div className='navbar'> 
-                <Link to= {``} > <i className='sideBarIcon'> <FaBars onClick={showSidebar}/> </i> </Link>
+                <Link to= {``} className='sideBarIcon' > <i> <FaBars onClick={showSidebar} /> </i> </Link>
               </div>
               
               {/* BRAND LOGO */}
@@ -52,12 +52,12 @@ const NavbarComponent= ()=> {
           </div>
 
          {/* SIDE BAR TOGGLE MENU */}
-
-          
-          <nav className= {sidebar ? 'nav-menu-active':'nav-menu'}>
-            <ul className= 'nav-menu-items'>
+ 
+        
+          <nav className= {sidebar ? 'nav-menu-active' : 'nav-menu'}>
+            <ul className= 'nav-menu-items' onClick={showSidebar} >
                 <li className='navbar-toggle'>
-                    <Link to= {` `} > <i className='closeicon'> <AiOutlineClose/> </i> </Link>
+                    <Link to= {` `} className='closeicon'> <i> <AiOutlineClose/> </i> </Link>
                 </li>
                 <li> <NavLink to= {`/`} activeClassName="current" className="home_text"> Home </NavLink> </li>
                 <li> <NavLink to= {``} activeClassName="current" className="products_text"> Products </NavLink></li>
@@ -67,11 +67,19 @@ const NavbarComponent= ()=> {
                 <li> <NavLink to= {`/contact`} activeClassName="current" className="contact_text"> Contact </NavLink> </li>
             </ul>
           </nav>
-          
+        
           
           
 
-        </header>
+        </>
+
+        
+
+      
+
+      
+
+            
     
   );
 }
