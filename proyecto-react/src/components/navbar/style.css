@@ -36,18 +36,24 @@
 .nav-menu{
     background-color: whitesmoke;
     width: 250px;
-    height: 100px;
+    height: 100vh;
     display: flex;
     /*flex-direction: column;*/
     position: fixed;
     top: 0;
     left: -100%;
     transition: 850ms;
+    opacity: unset;
 }
 
-.nav-menu.active{
+.active{
     left: 0;
     transition: 350ms;
+    
+}
+
+.closed{
+    left: -100%;
 }
 
 .nav-menu li {

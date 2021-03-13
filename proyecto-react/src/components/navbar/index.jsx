@@ -9,9 +9,6 @@ import {useState, useContext} from 'react';
 import {CartContext} from '../../context/CartContextProvider';
 
 
-
-
-
 const NavbarComponent= ()=> {
 
   const [sidebar, setSidebar]= useState (false)
@@ -19,9 +16,10 @@ const NavbarComponent= ()=> {
 
   
   const CartContextUse = useContext(CartContext)
+  console.log (CartContext)
 
   const {cart, setCart} = useContext (CartContext)
-  
+  const {getTotalItems, setTotalItems}= useContext (CartContext)
 
     return (
     
@@ -45,7 +43,7 @@ const NavbarComponent= ()=> {
               {/* CART */}
 
               <div className= 'cartIconDiv'>
-                <span>0</span>
+                <span>{getTotalItems}</span>
                 <Link to= {`/cart`}> <CartWidget/> </Link>
               </div>
 
@@ -54,7 +52,7 @@ const NavbarComponent= ()=> {
          {/* SIDE BAR TOGGLE MENU */}
  
         
-          <nav className= {sidebar ? 'nav-menu-active' : 'nav-menu'}>
+          <nav className= {sidebar ? 'nav-menu active' : 'nav-menu closed'}>
             <ul className= 'nav-menu-items' onClick={showSidebar} >
                 <li className='navbar-toggle'>
                     <Link to= {` `} className='closeicon'> <i> <AiOutlineClose/> </i> </Link>
@@ -72,15 +70,6 @@ const NavbarComponent= ()=> {
           
 
         </>
-
-        
-
-      
-
-      
-
-            
-    
   );
 }
 

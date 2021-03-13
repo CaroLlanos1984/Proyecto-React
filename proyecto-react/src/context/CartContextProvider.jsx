@@ -43,16 +43,26 @@ const CartContextProvider = ({ children }) => {
         }
     }, [])
 
+
     // PARA SABER SI YA ESTA EN EL CART 
 
     const isInCart = (id) => {
         return cart.findIndex (prod => prod.itemDetail.id === id )
     }
 
+
+    // PARA SUMAR AL CARTWIDGET DEL CART 
+
+    //const getTotalItems = () =>  cart.reduce ((acc,item) => acc += item.count, 0)
+    const getTotalItems = cart.reduce ( (acc, item) => {
+       return acc = acc + item.count
+    }, 0)
+    console.log (getTotalItems)
+
     
     return (
      
-        <CartContext.Provider value= {{ cart, setCart, addItem, isInCart }}>
+        <CartContext.Provider value= {{ cart, setCart, addItem, isInCart, getTotalItems }}>
             {children}
         </CartContext.Provider>
     )

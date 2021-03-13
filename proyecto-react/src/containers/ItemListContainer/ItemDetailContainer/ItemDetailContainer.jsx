@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import ItemDetailCard from "../../../components/ItemDetail/ItemDetailCard";
-//import ProductList from "../mocks/productList";
 import {useParams} from 'react-router-dom';
 import { getFirestore } from "../../../firebase";
 
