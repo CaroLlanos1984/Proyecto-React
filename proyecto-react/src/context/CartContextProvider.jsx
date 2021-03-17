@@ -27,13 +27,13 @@ const CartContextProvider = ({ children }) => {
             const newCart = [...cart];
             newCart.forEach ((product => {
                 if (product.itemDetail.id === itemDetail.id){
-                    product.count += itemDetail.count
+                    product.count += count
                 }
             }))
 
             setCart(newCart)
         }
-        localStorage.setItem( "cart", JSON.stringify ([...cart]))
+        //localStorage.setItem( "cart", JSON.stringify ([...cart]))
         
     }
 
@@ -42,6 +42,10 @@ const CartContextProvider = ({ children }) => {
                 setCart (JSON.parse (localStorage.getItem ("cart")))
         }
     }, [])
+
+   useEffect (() => {
+        localStorage.setItem ("cart", JSON.stringify (cart))
+    }, [cart])
 
 
     // PARA SABER SI YA ESTA EN EL CART 
@@ -53,10 +57,10 @@ const CartContextProvider = ({ children }) => {
 
     // PARA SUMAR AL CARTWIDGET DEL CART 
 
-    //const getTotalItems = () =>  cart.reduce ((acc,item) => acc += item.count, 0)
-    const getTotalItems = cart.reduce ( (acc, item) => {
-       return acc = acc + item.count
-    }, 0)
+    const getTotalItems = cart.reduce (( acc, item) => {
+        return acc + item.count 
+    },0)
+    
     console.log (getTotalItems)
 
     

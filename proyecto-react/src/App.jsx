@@ -8,12 +8,12 @@ import Contact from './components/contact';
 import CategoriesContainer from './containers/CategoriesContainer/categoriesContainer';
 import CartContextProvider from './context/CartContextProvider';
 import Cart from './components/cart/Cart';
-//import { useState } from 'react'
+import { useState } from 'react'
 
 
 const App= () => {
 
-  //const [cart, setCart]= useSatate ()
+  ////const [cart, setCart]= useSatate ()
 
   return (
 
