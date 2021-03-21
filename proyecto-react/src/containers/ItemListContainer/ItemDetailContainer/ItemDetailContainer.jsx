@@ -2,17 +2,22 @@ import { useState, useEffect } from "react"
 import ItemDetailCard from "../../../components/ItemDetail/ItemDetailCard";
 import {useParams} from 'react-router-dom';
 import { getFirestore } from "../../../firebase";
-
+import PropagateLoader from "react-spinners/PropagateLoader";
+import './style.css'
 
 const ItemDetailContainer = () => {
 
     
     const {itemId}= useParams ();
     const [itemDetail, setItemDetail] = useState ([]);
+    const [loading,setLoading]= useState (false)
 
-   
 
         useEffect ( () => {
+
+            // spinner true
+            setLoading (true)
+
             // conexion a la bd
             const dataBase = getFirestore()
             
@@ -27,43 +32,34 @@ const ItemDetailContainer = () => {
                 let aux = {...value.data(), id: value.id}
                 console.log(aux)
                 setItemDetail(aux)
+                setLoading (false)
     
             })
         }, [itemId])
     
-
-        
-        /*const getItems = new Promise ((resolve, reject) => {
-
-            setTimeout (() => {
-
-                let itemDetailInfo = ProductList.find(product => product.itemId.toString() === itemId) 
-                
-                           
-                console.log(itemDetailInfo)
-                
-
-                resolve (
-                   itemDetailInfo 
-                ) 
-                
-                
-                 
-            }, 2000);
-
-            
-            
-        });
-        getItems.then((result) => setItemDetail(result));*/
-    
-    
-    
-
    
 
     return (
         <>
-            <ItemDetailCard itemDetail={itemDetail} />
+            {
+                //if loading is true quiero q se muestre:
+                loading ?
+
+                <div className="spinner">
+                    <PropagateLoader
+                    color={"#2459E2"} 
+                    loading={loading}
+                    size={30} />
+                </div>
+
+                //si no es true:
+                :
+                
+                <div className='itemdetail'>
+                <ItemDetailCard itemDetail={itemDetail} />
+                </div>
+            
+            }    
         </>
     )
 }

@@ -1,6 +1,7 @@
 import { useContext } from'react'
-import { CartContext } from '../../context/CartContextProvider';
-import ItemCount from "../ItemCount";
+import { CartContext } from '../../context/CartContextProvider'
+import ItemCount from "../ItemCount"
+import './style.css'
 
 const ItemDetailCard = ({itemDetail}) => {
 
@@ -16,7 +17,7 @@ const ItemDetailCard = ({itemDetail}) => {
     return (
 
        <div className= "item">
-            <h3>Product: {itemDetail.title}</h3>
+            <h3>{itemDetail.title}</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas est cum autem atque sint 
             eius amet sit error illo adipisci, dicta aut deleniti commodi alias cupiditate numquam nisi 
             corrupti non.</p>

@@ -1,23 +1,48 @@
 import { useState, useEffect } from "react"
-import {useParams} from 'react-router-dom';
+//import {useParams} from 'react-router-dom';
 import ItemList from "../../components/ItemList/ItemList";
-import ProductList from "../ItemListContainer/mocks/productList";
-
+import { getFirestore } from "../../firebase";
 
 
 const CategoriesContainer = () => {
 
 
-    const {categoryId} = useParams ()
+    //const {categoryd} = useParams ()
     const [itemCategorie, setItemCategorie ] = useState ([]);
+
+    useEffect ( () => {
+
+
+          // conexion a la bd
+          const dataBase = getFirestore()
     
-    useEffect (() => {
+          // guardo la ref de la coleccion 
+          const itemCollection = dataBase.collection ('ITEMS')
+          const CategorieItem = itemCollection.where('categoryId')
+
+
+           //tomo los datos
+           CategorieItem.get().then((value) => {
+            let aux = {...value.data(), categoryId: value.categoryId}
+            console.log(aux)
+            setItemCategorie(aux)
+            //setLoading (false)*/
+            
+            
+
+        })
+
+    },[categoryId])
+    
+
+
+   /* useEffect (() => {
 
         
 
-        const getItemsByCategorie = new Promise ((resolve, reject) => {
+        //const getItemsByCategorie = new Promise ((resolve, reject) => {
 
-            setTimeout (() => {
+            //setTimeout (() => {
 
                 let itemsByCategorie = ProductList.filter (product => product.categoryId.toString() === categoryId);
                     
@@ -27,7 +52,7 @@ const CategoriesContainer = () => {
 
                 resolve (itemsByCategorie)
 
-            }, 2000);
+            //}, 2000);
 
         })
 
@@ -35,7 +60,7 @@ const CategoriesContainer = () => {
 
         getItemsByCategorie.then ((result) => setItemCategorie (result));
 
-    }, [categoryId]);
+    }, [categoryId]);*/
 
 
     return (

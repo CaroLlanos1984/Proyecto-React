@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import { getFirestore } from '../../firebase';
 import './styles.css';
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 
 const ItemListContainer = () => {
 
     const [products,setProducts]= useState ([]);
-   
+    const [loading,setLoading]= useState (false)
 
     /*useEffect (() => {
 
@@ -21,6 +22,8 @@ const ItemListContainer = () => {
     }, []);*/
     
     useEffect ( () => {
+
+        setLoading (true)
         // conexion a la bd
         const dataBase = getFirestore()
 
@@ -35,6 +38,7 @@ const ItemListContainer = () => {
             })
             console.log(aux)
             setProducts(aux)
+            setLoading (false)
 
         })
     }, [])
@@ -43,7 +47,22 @@ const ItemListContainer = () => {
 
     return (
         <>
-            <ItemList products={products}/>
+            {
+            
+                loading ?
+                <div className="spinner">
+                <PropagateLoader
+                color={"#2459E2"} 
+                loading={loading} 
+                //css={override} 
+                size={30} />
+                </div>
+
+                :
+                
+                <ItemList products={products}/>
+                
+            }
         </>
     )
 

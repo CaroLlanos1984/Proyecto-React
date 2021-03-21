@@ -6,6 +6,10 @@
     height: 100vh;
    
 }
-
-
-
+.itemdetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   flex-wrap: wrap;
+}
