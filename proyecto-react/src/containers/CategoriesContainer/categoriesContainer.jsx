@@ -1,16 +1,21 @@
 import { useState, useEffect } from "react"
-//import {useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import ItemList from "../../components/ItemList/ItemList";
 import { getFirestore } from "../../firebase";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 
 const CategoriesContainer = () => {
 
 
-    //const {categoryd} = useParams ()
+    const {categoryId} = useParams ()
     const [itemCategorie, setItemCategorie ] = useState ([]);
+    const [loading,setLoading]= useState (false)
 
     useEffect ( () => {
+
+         // spinner true
+         setLoading (true)
 
 
           // conexion a la bd
@@ -18,55 +23,45 @@ const CategoriesContainer = () => {
     
           // guardo la ref de la coleccion 
           const itemCollection = dataBase.collection ('ITEMS')
-          const CategorieItem = itemCollection.where('categoryId')
+          const CategorieItem = itemCollection.where('categoryId','==','zapatillas')
 
 
            //tomo los datos
            CategorieItem.get().then((value) => {
-            let aux = {...value.data(), categoryId: value.categoryId}
-            console.log(aux)
-            setItemCategorie(aux)
+           
+            if(value.categoryId === 'zapatillas' ){
+            }
+            setItemCategorie (value.docs.map(doc=> doc.data()))
             //setLoading (false)*/
-            
-            
-
         })
 
     },[categoryId])
+
+    /*let aux = {...value.data(), categoryId: value.categoryId}
+    console.log(aux)
+    setItemCategorie(aux)*/
+    
     
 
-
-   /* useEffect (() => {
-
-        
-
-        //const getItemsByCategorie = new Promise ((resolve, reject) => {
-
-            //setTimeout (() => {
-
-                let itemsByCategorie = ProductList.filter (product => product.categoryId.toString() === categoryId);
-                    
-
-            
-                console.log (getItemsByCategorie)
-
-                resolve (itemsByCategorie)
-
-            //}, 2000);
-
-        })
-
-    
-
-        getItemsByCategorie.then ((result) => setItemCategorie (result));
-
-    }, [categoryId]);*/
 
 
     return (
         <>
+        {
+            //if loading is true quiero q se muestre:
+            loading ?
+
+            <div className="spinner">
+                <PropagateLoader
+                color={"#2459E2"} 
+                loading={loading}
+                size={30} />
+            </div>
+
+            //si no es true:
+            :
             <ItemList products={itemCategorie}/>
-            
+        }
         </>
     )
 }

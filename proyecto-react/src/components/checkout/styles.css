@@ -1,0 +1,26 @@
+.checkout{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.title{
+    
+    text-align: center;
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    padding: 20px;
+    
+    
+}
+
+.input{
+    margin: 15px;
+}

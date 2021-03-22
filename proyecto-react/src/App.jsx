@@ -4,11 +4,12 @@ import NavbarComponent from './components/navbar';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 import  {BrowserRouter, Switch, Route} from 'react-router-dom';
 import ItemDetailContainer from './containers/ItemListContainer/ItemDetailContainer/ItemDetailContainer';
-import Contact from './components/contact';
+//import Contact from './components/contact';
 import CategoriesContainer from './containers/CategoriesContainer/categoriesContainer';
 import CartContextProvider from './context/CartContextProvider';
 import Cart from './components/cart/Cart';
-import { useState } from 'react'
+//import { useState } from 'react'
+import CheckoutComponent from './components/checkout';
 
 
 const App= () => {
@@ -46,8 +47,8 @@ const App= () => {
             <Cart/>
           </Route>
 
-          <Route exact path= "/contact">
-              <Contact/>
+          <Route exact path= "/checkout">
+              <CheckoutComponent/>
           </Route>
 
         </Switch>

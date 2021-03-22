@@ -10,16 +10,6 @@ const ItemListContainer = () => {
     const [products,setProducts]= useState ([]);
     const [loading,setLoading]= useState (false)
 
-    /*useEffect (() => {
-
-        const promise = new Promise ((resolve, reject) => {
-            setTimeout (() => {
-                resolve (ProductList)
-            }, 2000);
-            
-        });
-        promise.then((result) => setProducts(result));
-    }, []);*/
     
     useEffect ( () => {
 
@@ -53,8 +43,7 @@ const ItemListContainer = () => {
                 <div className="spinner">
                 <PropagateLoader
                 color={"#2459E2"} 
-                loading={loading} 
-                //css={override} 
+                loading={loading}
                 size={30} />
                 </div>
 
