@@ -24,7 +24,7 @@ const CategoriesContainer = () => {
     
           // guardo la ref de la coleccion 
           const itemCollection = dataBase.collection ('ITEMS')
-          const CategorieItem = itemCollection.where ('categoryId','==','categoryId')
+          const CategorieItem = itemCollection.where ('categoryId','==', categoryId )
         
 
 
