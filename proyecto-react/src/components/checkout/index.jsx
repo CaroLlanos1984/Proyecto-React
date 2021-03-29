@@ -1,6 +1,7 @@
 import './styles.css'
 import { useContext , useState} from 'react';
 import { CartContext } from '../../context/CartContextProvider';
+import { getFirestore } from '../../firebase';
 
 const CheckoutComponent  = () => {
 
@@ -18,11 +19,16 @@ const CheckoutComponent  = () => {
     const[email, setEmail]= useState ('')
 
     // FINALIZAR COMPRA 
-    const buy = () => {
+    const buy = async () => {
+        
+        let newOrder = ( {name: name, lastName: lastname, email: email, items: [...cart], total:setTotal } )
 
-        console.log (cart)
-        console.log ( {name: name, lastName: lastname, email: email, items: [...cart], total:setTotal } )
+        const dataBase = getFirestore()
+        const orderCollection = dataBase.collection ('ORDERS')
+        orderCollection.add(newOrder)
+    
     }
+    console.log (cart)
 
     
 

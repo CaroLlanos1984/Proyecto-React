@@ -9,6 +9,7 @@ const CategoriesContainer = () => {
 
 
     const {categoryId} = useParams ()
+    console.log (categoryId)
     const [itemCategorie, setItemCategorie ] = useState ([]);
     const [loading,setLoading]= useState (false)
 
@@ -23,19 +24,23 @@ const CategoriesContainer = () => {
     
           // guardo la ref de la coleccion 
           const itemCollection = dataBase.collection ('ITEMS')
-          const CategorieItem = itemCollection.where('categoryId','==','zapatillas')
+          const CategorieItem = itemCollection.where ('categoryId','==','categoryId')
+        
 
 
            //tomo los datos
            CategorieItem.get().then((value) => {
-           
-            if(value.categoryId === 'zapatillas' ){
-            }
-            setItemCategorie (value.docs.map(doc=> doc.data()))
-            //setLoading (false)*/
-        })
+                setItemCategorie (value.docs.map(doc=> ({id:doc.id, ...doc.data()})))
+                console.log (console.log(value.docs.map(doc=> ({id: doc.id, ...doc.data()}))))
+                setLoading (false)
+                
+            })
+            
 
     },[categoryId])
+
+    
+    
 
     /*let aux = {...value.data(), categoryId: value.categoryId}
     console.log(aux)
@@ -60,7 +65,9 @@ const CategoriesContainer = () => {
 
             //si no es true:
             :
-            <ItemList products={itemCategorie}/>
+            <div>
+                <ItemList products={itemCategorie}/>
+            </div>
         }
         </>
     )
