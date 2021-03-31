@@ -15,11 +15,7 @@ const NavbarComponent= ()=> {
   const showSidebar = () => setSidebar (!sidebar) 
 
   
-  const CartContextUse = useContext(CartContext)
-  console.log (CartContext)
-
-  const {cart, setCart} = useContext (CartContext)
-  const {getTotalItems, setTotalItems}= useContext (CartContext)
+  const {getTotalItems}= useContext (CartContext)
 
     return (
     

@@ -39,15 +39,6 @@ const CategoriesContainer = () => {
 
     },[categoryId])
 
-    
-    
-
-    /*let aux = {...value.data(), categoryId: value.categoryId}
-    console.log(aux)
-    setItemCategorie(aux)*/
-    
-    
-
 
 
     return (

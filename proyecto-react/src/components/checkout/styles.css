@@ -1,6 +1,7 @@
 .checkout{
     display: flex;
     justify-content: center;
+    align-items:center;
     flex-direction: column;
     
 }
@@ -18,9 +19,20 @@
     justify-self: center;
     padding: 20px;
     
-    
 }
 
 .input{
     margin: 15px;
+    width:700px
+}
+
+.buyBtn{
+    width: 200px;
+    height: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: lightsteelblue;
+    border-radius: 20px;
+    border: 2px solid grey;
+    justify-content:center;
 }

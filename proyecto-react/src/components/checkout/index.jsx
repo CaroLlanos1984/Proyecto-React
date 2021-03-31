@@ -9,26 +9,34 @@ const CheckoutComponent  = () => {
     console.log(CartContextUse)
     
 
-    const {cart, setCart} = useContext (CartContext)
-    console.log(cart)
+    const {cart} = useContext (CartContext)
+    //console.log(cart)
 
-    const {setTotal} = useContext (CartContext)
+    const {cartTotal} = useContext (CartContext)
 
     const[name, setName] = useState ('')
     const [lastname, setLastName] = useState ('')
     const[email, setEmail]= useState ('')
+    const [phone,setPhone]= useState ('')
 
     // FINALIZAR COMPRA 
     const buy = async () => {
+
         
-        let newOrder = ( {name: name, lastName: lastname, email: email, items: [...cart], total:setTotal } )
+        let newOrder = ( {buyer: {name: name, lastName: lastname, email: email, phone: phone}, items: [...cart], total: cartTotal } )
 
         const dataBase = getFirestore()
-        const orderCollection = dataBase.collection ('ORDERS')
-        orderCollection.add(newOrder)
+        const ordersCollection = dataBase.collection ('orders')
+        ordersCollection.add(newOrder).then ((value) => {
+            console.log(value)
+        })
     
     }
-    console.log (cart)
+
+    //console.log (cart)
+    console.log (
+       { buyer: {name: name,lastName: lastname, email: email, phone: phone }, items: [...cart], total: cartTotal}
+    )
 
     
 
@@ -43,9 +51,16 @@ const CheckoutComponent  = () => {
                 <div className='form' >
                     <input className='input' type='text' placeholder= 'Nombre' onChange = {(e) => {setName (e.target.value)}} />
                     <input className='input' type='text' placeholder= 'Apellido' onChange = {(e) => {setLastName (e.target.value)}} />
+                    <input className='input' type='text' placeholder= 'Phone' onChange = {(e) => {setPhone (e.target.value)}} />
                     <input className='input' type='text' placeholder= 'Mail' onChange = {(e) => {setEmail (e.target.value)}} />
                 </div>
+
+                <div>
+                    <button className='buyBtn' onClick ={buy} > Buy </button>
+                </div>
             </div>
+
+            
         </>
     )
 

@@ -1,4 +1,3 @@
-
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContextProvider';
 import { FaTrashAlt} from "react-icons/fa";
@@ -13,16 +12,11 @@ const Cart = () => {
     console.log(CartContextUse)
 
     const {cart, setCart} = useContext (CartContext)
-    console.log(cart)
-    
-    // TOTAL CART
-    const cartTotal =  cart.reduce ((acc,item) => {
-      return acc + (item.count * item.itemDetail.price)
-    },0)
-    
-    
-    console.log(cartTotal)
+    //console.log(cart)
 
+    const {cartTotal} = useContext (CartContext)
+    
+  
     // REMOVER ITEMS DEL CART
     
 
@@ -39,14 +33,6 @@ const Cart = () => {
     const emptyCart = () => setCart ([])
 
     
-    // FINALIZAR COMPRA 
-    /*const buy = () => {
-      console.log (cart)
-      console.log ( {name: name, email: email, items: [...cart], total: cartTotal} )
-    }*/
-    
-    
-  
       return(
         <>
           <div className="cart">
@@ -74,7 +60,7 @@ const Cart = () => {
           <div className='endCart'>
 
             <div className='totalCart'>
-              <p>TOTAL CART: ${cartTotal}</p> 
+              <p>TOTAL CART: {cartTotal}</p> 
             </div>
 
             <div className='checkout'>
